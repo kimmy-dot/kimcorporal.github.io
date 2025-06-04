@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kim Sinaguinan Portfolio</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+    /* Reset & base */
+    body, html {
+      margin: 0; padding: 0;
+      height: 100%;
+      background: #0d0d0d;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Left vertical social */
+    .social-bar {
+      position: fixed;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 1000;
+    }
+    .social-bar a {
+        color: #ff4dc1; 
+        font-size: 1.5rem;
+        transition: color 0.3s ease;
+        }
+        .social-bar a:hover {
+        color: #f8c8d8; 
+        }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 20px;
+      right: 40px;
+      z-index: 1000;
+      display: flex;
+      gap: 2rem;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: top 0.3s ease; 
+    }
+    nav a {
+        position: relative;
+        color: #ff4dc1; 
+        transition: color 0.3s ease;
+    }
+    nav a::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background: #ff4dc1;
+        transition: width 0.3s ease;
+    }
+    nav a:hover {
+        color: #f8c8d8; 
+    }
+    nav a:hover::after {
+        width: 100%;
+    }
+    /* Container split */
+    .container-split {
+      display: flex;
+      height: 100vh;
+      padding: 0 4rem;
+    }
+    .left-side {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Neon stroke text effect */
+   .name {
+    font-family: 'Rajdhani', sans-serif; 
+    font-size: 6rem;
+    font-weight: 700;
+    color: #ff4dc1; 
+    line-height: 1;
+    user-select: none;
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: 8px;
+    animation: flicker 3s infinite alternate;
+}
+
+
+      @keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+        -webkit-text-stroke-color: #00d9ff; 
+        text-shadow:
+        0 0 8px #00d9ff,
+        0 0 20px #c2f8ff,
+        0 0 30px #00d9ff,
+        0 0 40px #c2f8ff; 
+    }
+    20%, 22%, 24%, 55% {
+        opacity: 0.5;
+        -webkit-text-stroke-color: #c2f8ff; 
+        text-shadow: none;
+    }
+}
+
+    .role {
+        font-size: 2rem;
+        font-weight: 600;
+        color: #f8c8d8; 
+        margin: 0.5rem 0 2rem;
+        letter-spacing: 4px;
+        user-select: none;
+        }
+    .desc {
+      max-width: 400px;
+      font-weight: 300;
+      color: #ccc;
+      line-height: 1.5;
+      font-size: 1.1rem;
+    }
+    .btn-contact {
+        margin-top: 2.5rem;
+        padding: 1rem 3rem;
+        background: #ff4dc1; 
+        border: none;
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: #fff;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        width: max-content;
+        }
+        .btn-contact:hover {
+        background: #f8c8d8; 
+        }
+    .right-side {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .profile-pic {
+        width: 355px;
+        height: 355px;
+        border-radius: 50%;
+        border: 4px solid #ff4dc1; 
+        overflow: hidden;
+        box-shadow:
+            0 0 20px #ff4dc1,
+            0 0 40px #f8c8d8;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        }
+    .profile-pic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(1);
+      transition: filter 0.3s ease;
+    }
+    .profile-pic:hover {
+      transform: scale(1.1);
+    }
+    .profile-pic:hover img {
+      filter: brightness(1.1) saturate(1.2);
+    }
+    /* Responsive */
+    @media (max-width: 991px) {
+      .container-split {
+        flex-direction: column;
+        height: auto;
+        padding: 2rem;
+      }
+      .left-side {
+        padding-left: 0;
+        text-align: center;
+      }
+      .name {
+        font-size: 3.5rem;
+        letter-spacing: 4px;
+      }
+      .role {
+        font-size: 1.4rem;
+      }
+      .right-side {
+        margin-top: 2rem;
+      }
+      nav {
+        position: static;
+        justify-content: center;
+        margin-bottom: 2rem;
+      }
+      .social-bar {
+        position: static;
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 2rem;
+        top: auto;
+        left: auto;
+        transform: none;
+      }
+    }
+    .projects-vertical {
+        display: flex;
+        flex-direction: column;
+        gap: 1.8rem;
+        max-height: 500px;
+        overflow-y: auto;
+        padding-right: 0.5rem;
+        scrollbar-width: thin;
+        scrollbar-color: #ff4dc1 transparent;
+        }
+        .projects-vertical::-webkit-scrollbar {
+        width: 6px;
+        }
+        .projects-vertical::-webkit-scrollbar-thumb {
+        background-color: #ff4dc1;
+        border-radius: 3px;
+        }
+        .project-card {
+        background: #1a1a1a;
+        border: 2px solid #ff4dc1;
+        border-radius: 15px;
+        padding: 1.5rem;
+        color: #eee;
+        box-shadow:
+            0 0 10px #ff4dc1,
+            0 0 20px #f8c8d8;
+        transition: transform 0.3s ease;
+        cursor: default;
+        }
+        .project-card:hover {
+        transform: scale(1.05);
+        box-shadow:
+            0 0 20px #ff4dc1,
+            0 0 40px #ff4dc1;
+        }
+        .project-card h3 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        font-family: 'Orbitron', sans-serif;
+        font-weight: 700;
+        color: #ff4dc1;
+        }
+        #about, #projects {
+        padding: 3rem 1.5rem;
+      }
+      .project-card {
+        width: 200px;
+      }
+        /* Projects Section */
+      #projects {
+      padding: 5rem 4rem;
+      background: #111111;
+    }
+    #projects h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      color: #ff4dc1;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+      user-select: none;
+      text-transform: uppercase;
+      text-align: center;
+    }
+    .project-row {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      scrollbar-width: thin;
+      scrollbar-color: #ff4dc1 transparent;
+      scroll-behavior: smooth;
+    }
+    .project-row::-webkit-scrollbar {
+      height: 10px;
+    }
+    .project-row::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .project-row::-webkit-scrollbar-thumb {
+      background-color: #ff4dc1;
+      border-radius: 5px;
+    }
+    .project-card {
+      flex: 0 0 auto;
+      background: #222;
+      border-radius: 12px;
+      box-shadow:
+        0 0 10px #ff4dc1,
+        0 0 20px #f8c8d8;
+      width: 250px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      user-select: none;
+    }
+    .project-card:hover {
+      transform: scale(1.05);
+    }
+    .project-image {
+      width: 100%;
+      height: 140px;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      border-bottom-right-radius: 12px;
+      border-bottom-left-radius: 12px;
+      object-fit: cover;
+      filter: brightness(0.9);
+      transition: filter 0.3s ease;
+    }
+    .project-card:hover .project-image {
+      filter: brightness(1.1);
+    }
+    .project-info {
+      padding: 1rem;
+    }
+    .project-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.2rem;
+      color: #ffb6c1;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      user-select: text;
+    }
+    .project-desc {
+      font-weight: 300;
+      font-size: 0.95rem;
+      color: #ccc;
+      line-height: 1.4;
+      user-select: text;
+    }
+  </style>
+</head>
+<body>
+  <!-- Social icons vertical -->
+<div class="social-bar" aria-label="Social media links">
+  <!-- Facebook -->
+  <a href="https://web.facebook.com/kmcrprl" target="_blank" rel="noopener" aria-label="Facebook">
+    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+    </svg>
+  </a>
+
+  <!-- Instagram -->
+  <a href="https://www.instagram.com/_anntukim?igsh=MXM2Y3Bwb3RsamhkMQ==" target="_blank" rel="noopener" aria-label="Instagram">
+    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-1a1 1 0 100 2 1 1 0 000-2z"/>
+    </svg>
+  </a>
+
+  <!-- LinkedIn -->
+  <a href="https://www.linkedin.com/in/sinaguinan-kimberly-c-237668361?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener" aria-label="LinkedIn">
+    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M4 3a2 2 0 100 4 2 2 0 000-4zM3 8h2v13H3zM8 8h2v1.5a3.5 3.5 0 016 2.5V21h-2v-8a1.5 1.5 0 00-3 0v8H9V8z"/>
+    </svg>
+  </a>
+</div>
+
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="pages/about.html">About</a>
+    <!-- <a href="#projects">Projects</a> -->
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="container-split">
+    <div class="left-side" role="main">
+      <h1 class="name" aria-label="Your Name">Hi I'm Kim</h1>
+      <h2 class="role">UI/UX DESIGNER | FRONT-END DEVELOPER | PROJECT LEADER</h2>
+      <p class="desc">
+        Crafting beautiful digital experiences through clean design, intuitive UI, and vibrant colors. Specializing in branding, web design, and user-centered solutions.
+      </p>
+      <button class="btn-contact" onclick="location.href='#contact'">Contact Me</button>
+    </div>
+    <div class="right-side" aria-hidden="true">
+      <div class="profile-pic">
+        <img src="picture/kim1.png" alt="Profile picture" />
+      </div>
+    </div>
+  </div>
+
+<!-- About Section -->
+<section id="about" style="padding: 4rem 2rem; max-width: 900px; margin: auto;">
+    <h2 style="color:#ffb6c1; font-family: 'Orbitron', sans-serif; font-size: 3rem; margin-bottom: 1rem;">
+      About Me
+    </h2>
+    <p style="color:#ccc; font-weight: 300; font-size: 1.2rem; line-height: 1.6;">
+      I’m a fresh graduate with a passion for graphic design and UI/UX development, blending creativity with functionality to craft engaging digital experiences. 
+      My academic journey and internship projects have equipped me with hands-on experience in web design, user-centered development, and front-end technologies. As a former student leader, I’ve developed strong communication, teamwork, and project management skills, ready to bring value, adaptability, and drive to any professional environment.
+    </p>
+  </section>
+ <!-- Professional Experience Section -->
+  <section class="bg-black text-pink-300 py-16 px-6 md:px-20" id="experience">
+    <h2 class="text-4xl font-extrabold text-center uppercase tracking-wider">Professional Experience</h2>
+    <h3 class="text-2xl font-extrabold text-center uppercase tracking-wider mb-12">Internship</h3>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Internship - University of Kratie -->
+      <div class="bg-gray-900 border border-pink-600 rounded-xl shadow-lg p-6 transition duration-300 hover:scale-105 hover:shadow-pink-600/50">
+        <h3 class="text-xl font-bold text-pink-400 mb-1">
+          <a href="https://sinhssci-games.com/ukt2.0/" target="_blank" rel="noopener noreferrer" class="hover:underline">
+            University of Kratie Website Development
+          </a>
+       </h3>
+        <p class="text-sm italic text-pink-200 mb-3">Cambodia | Feb – May 2025</p>
+        <p class="font-semibold text-pink-300 mb-2">Project Manager / UI/UX Designer</p>
+        <ul class="list-disc pl-4 space-y-1 text-sm text-pink-200">
+          <li>Managed UI/UX design (Admin) and quality assurance for the official university website.</li>
+          <li>Collaborated with staff to align content with institutional goals.</li>
+          <li>Authored user documentation for smoother system use.</li>
+        </ul>
+      </div>
+
+      <!-- Internship - TimbangApp -->
+      <div class="bg-gray-900 border border-pink-600 rounded-xl shadow-lg p-6 transition duration-300 hover:scale-105 hover:shadow-pink-600/50">
+         <h3 class="text-xl font-bold text-pink-400 mb-1">
+            <a href="https://ieatsolutions.com/timbangapp/#home" target="_blank" rel="noopener noreferrer" class="hover:underline">
+              TimbangApp Website Development
+            </a>
+         </h3>
+        <p class="text-sm italic text-pink-200 mb-3">BASC-ICS | Feb – May 2025</p>
+        <p class="font-semibold text-pink-300 mb-2">Project Leader / UI/UX Designer</p>
+        <ul class="list-disc pl-4 space-y-1 text-sm text-pink-200">
+          <li>Led development of a health monitoring platform tailored for community use.</li>
+          <li>Directed UI/UX design (Admin) and managed project tasks among team members.</li>
+          <li>Oversaw testing and refinement for user-centered functionality.</li>
+        </ul>
+      </div>
+
+      <!-- Internship - SIBOL -->
+      <div class="bg-gray-900 border border-pink-600 rounded-xl shadow-lg p-6 transition duration-300 hover:scale-105 hover:shadow-pink-600/50">
+        <h3 class="text-xl font-bold text-pink-400 mb-1">
+          <a href="https://ieatsolutions.com/projectsibol/login.php" target="_blank" rel="noopener noreferrer" class="hover:underline">
+            SIBOL: Online Livelihood System
+          </a>
+        </h3>
+        <p class="text-sm italic text-pink-200 mb-3">BASC-ICS | Feb – May 2025</p>
+        <p class="font-semibold text-pink-300 mb-2">Project Leader / UI/UX Designer</p>
+        <ul class="list-disc pl-4 space-y-1 text-sm text-pink-200">
+          <li>Created a digital livelihood platform to support entrepreneurship.</li>
+          <li>Designed prototypes and interface flows for intuitive use.</li>
+          <li>Maintained alignment with project goals through continuous feedback.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+<!-- Projects Section -->
+<section id="projects">
+  <h3 class="text-4xl font-bold mb-10 text-pink-400 text-center border-b-4 border-pink-600 pb-3 inline-block font-family: 'Orbitron', sans-serif;">Projects</h3>
+
+  <!-- Horizontal Cards -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+
+    <!-- Project 1 -->
+    <a href="https://yourportfolio.com" target="_blank" rel="noopener noreferrer" class="block bg-gray-900 rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+      <img src="picture/portf.png" alt="Portfolio" class="w-full h-48 object-contain bg-white">
+      <div class="p-4">
+        <h4 class="text-lg font-semibold text-pink-400 mb-1">Portfolio Website</h4>
+        <p class="text-gray-300 text-sm">Personal portfolio using HTML, CSS, JS.</p>
+      </div>
+    </a>
+
+    <!-- Project 2 -->
+    <a href="https://www.sinhssci-games.com/index.php" target="_blank" rel="noopener noreferrer" class="block bg-gray-900 rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+      <img src="picture/p2.2.png" alt="Quiz Game" class="w-full h-48 object-contain bg-white">
+      <div class="p-4">
+        <h4 class="text-lg font-semibold text-yellow-300 mb-1">SCI-GAMES</h4>
+        <p class="text-gray-300 text-sm">Online Mobile Application for Science 8. Interactive game for students.</p>
+      </div>
+    </a>
+    <!-- Project 3 -->
+    <a href="https://sinhssci-games.com/ukt2.0/" target="_blank" rel="noopener noreferrer" class="block bg-gray-900 rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+      <img src="picture/ukt.1.png" alt="UKT Site" class="w-full h-48 object-contain bg-white">
+      <div class="p-4">
+        <h4 class="text-lg font-semibold text-green-300 mb-1">UKT Website</h4>
+        <p class="text-gray-300 text-sm">Internship web project for University of Kratie Cambodia.</p>
+      </div>
+    </a>
+     <!-- Project 4 -->
+    <a href="https://ieatsolutions.com/projectsibol/login.php" target="_blank" rel="noopener noreferrer" class="block bg-gray-900 rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+      <img src="picture/sibol.jpg" alt="UKT Site" class="w-full h-48 object-contain bg-white">
+      <div class="p-4">
+        <h4 class="text-lg font-semibold text-pink-300 mb-1">SIBOL: Systematic Innovation Building for Online Livelihood</h4>
+        <p class="text-gray-300 text-sm">Part of Internship Web Project.</p>
+      </div>
+    </a>
+     <!-- Project 5 -->
+    <a href="https://ieatsolutions.com/timbangapp/pages/loginpage.php" target="_blank" rel="noopener noreferrer" class="block bg-gray-900 rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+      <img src="picture/TA.png" alt="UKT Site" class="w-full h-48 object-contain bg-white">
+      <div class="p-4">
+        <h4 class="text-lg font-semibold text-indigo-300 mb-1">TimbangApp</h4>
+        <p class="text-gray-300 text-sm">Part of Internship Web Project.</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+ <!-- Projects Section -->
+ <section id="projects" tabindex="0" aria-labelledby="projects-heading">
+    <h2 id="projects-heading">BITS Seminars and Workshops Under My Leadership</h2>
+    <div class="project-row" role="list" aria-label="List of projects">
+      <article class="project-card" role="listitem" tabindex="0" aria-label="Project: 6TH INTERNATIONAL LECTURE SERIES FOR IT AND ABE">
+        <img
+          src="picture/e2.2.png"
+          alt="6TH INTERNATIONAL LECTURE SERIES FOR IT AND ABE"
+          class="project-image"
+        />
+        <div class="project-info">
+          <h3 class="project-title">6TH INTERNATIONAL LECTURE SERIES FOR IT AND ABE</h3>
+          <p class="project-desc">It focused on robotics, highlighting global advancements, applications, and its impact on the future of technology and agriculture.</p>
+        </div>
+      </article>
+      <article class="project-card" role="listitem" tabindex="0" aria-label="Project: Mastering Information System">
+        <img
+          src="picture/e3.png"
+          alt="Mastering Information System"
+          class="project-image"
+        />
+        <div class="project-info">
+          <h3 class="project-title">Mastering Information System</h3>
+          <p class="project-desc">Introduced the information system to faculty members through live demonstrations to support academic and administrative tasks.</p>
+        </div>
+      </article>
+      <article class="project-card" role="listitem" tabindex="0" aria-label="Project: UKt Website">
+        <img
+          src="picture/e4.png"
+          alt="UKt Website"
+          class="project-image"
+        />
+        <div class="project-info">
+          <h3 class="project-title">UKt Cambodia Website Management</h3>
+          <p class="project-desc">A training session where I guided faculty and staff on effectively using and managing the school website we developed for the university.</p>
+        </div>
+      </article>
+      <article class="project-card" role="listitem" tabindex="0" aria-label="Project: Exploring tech careers">
+        <img
+          src="picture/e5.png"
+          alt="Exploring tech careers"
+          class="project-image"
+        />
+        <div class="project-info">
+          <h3 class="project-title">Exploring tech careers</h3>
+          <p class="project-desc">Helped 4th-year IT students discover and understand different career paths in the tech industry to make informed decisions about their futures.</p>
+        </div>
+      </article>
+      <article class="project-card" role="listitem" tabindex="0" aria-label="Project: Intellectual Property">
+        <img
+          src="picture/e6.png"
+          alt="Intellectual Property"
+          class="project-image"
+        />
+        <div class="project-info">
+          <h3 class="project-title">Capstone Write Shop</h3>
+          <p class="project-desc"> Equipped students with advanced skills and expert advice to enhance the quality and clarity of their capstone project documentation.</p>
+        </div>
+      </article>
+      <article class="project-card" role="listitem" tabindex="0" aria-label="Project: Neon Typography">
+        <img
+          src="picture/e7.jpg"
+          alt="Neon Typography"
+          class="project-image"
+        />
+        <div class="project-info">
+          <h3 class="project-title">THE CAPSTONE ADVENTURES BEGIN</h3>
+          <p class="project-desc">Launched the 2nd year IT students' capstone journey, guiding them in turning ideas into impactful projects.</p>
+        </div>
+      </article>
+      <article class="project-card" role="listitem" tabindex="0" aria-label="Project: Neon Typography">
+        <img
+          src="picture/e8.jpg"
+          alt="Neon Typography"
+          class="project-image"
+        />
+        <div class="project-info">
+          <h3 class="project-title">Venturing into capstone</h3>
+          <p class="project-desc">Introduced 3rd year IT students to a structured approach in navigating their capstone projects, opening doors to innovative thinking and research.</p>
+        </div>
+      </article>
+      <article class="project-card" role="listitem" tabindex="0" aria-label="Project: Neon Typography">
+        <img
+          src="picture/e9.jpg"
+          alt="Neon Typography"
+          class="project-image"
+        />
+        <div class="project-info">
+          <h3 class="project-title">Techxel</h3>
+          <p class="project-desc">Equipped all IT students with essential digital skills and insights to thrive in today’s rapidly evolving tech landscape.</p>
+        </div>
+      </article>
+      <article class="project-card" role="listitem" tabindex="0" aria-label="Project: Neon Typography">
+        <img
+          src="picture/e10.jpg"
+          alt="Intellectual Property"
+          class="project-image"
+        />
+        <div class="project-info">
+          <h3 class="project-title">INTELLECTUAL PROPERTY</h3>
+          <p class="project-desc">Focused on educating students about IP rights and protection strategies essential for their capstone projects.
+          </p>
+        </div>
+      </article>
+    </div>
+  </section>
+  <!-- Certificates -->
+  <section class="max-w-6xl mx-auto px-6 py-12 text-white">
+    <h2 class="text-4xl font-bold text-pink-500 mb-12 border-b-2 border-pink-500 inline-block"> CONTRIBUTIONS, TRAININGS & SEMINARS</h2>
+
+    <ol class="relative border-l border-pink-500 space-y-10">    
+      <li>
+        <div class="ml-6">
+          <div class="flex items-center mb-1">
+            <span class="text-pink-400 font-semibold">Capability for the Futures Thinking and Foresight</span>
+            <span class="ml-2 text-sm text-gray-400">| August 4, 2023 • 16 hrs</span>
+          </div>
+          <p class="text-sm text-gray-300">Certificate of Participation</p>
+        </div>
+      </li>
+
+      <li>
+        <div class="ml-6">
+          <div class="flex items-center mb-1">
+            <span class="text-pink-400 font-semibold">IEAT ANGAT PA: "Techxel: Navigating the Digital Frontier"</span>
+            <span class="ml-2 text-sm text-gray-400">| September 20, 2023 • 5 hrs</span>
+          </div>
+          <p class="text-sm text-gray-300">Certificate of Appreciation (Facilitator)</p>
+        </div>
+      </li>
+
+      <li>
+        <div class="ml-6">
+          <div class="flex items-center mb-1">
+            <span class="text-pink-400 font-semibold">Venturing Into Capstone</span>
+            <span class="ml-2 text-sm text-gray-400">| May 29, 2024 • 5 hrs</span>
+          </div>
+          <p class="text-sm text-gray-300">Certificate of Appreciation (Facilitator)</p>
+        </div>
+      </li>
+
+      <li>
+        <div class="ml-6">
+          <div class="flex items-center mb-1">
+            <span class="text-pink-400 font-semibold">Mastering Information Systems Training</span>
+            <span class="ml-2 text-sm text-gray-400">| September 27, 2024 • 8 hrs</span>
+          </div>
+          <p class="text-sm text-gray-300">Certificate of Appreciation (Facilitator)</p>
+        </div>
+      </li>
+
+      <li>
+        <div class="ml-6">
+          <div class="flex items-center mb-1">
+            <span class="text-pink-400 font-semibold">Futures Thinking & Foresight for BASC Leaders</span>
+            <span class="ml-2 text-sm text-gray-400">| October 4, 2024 • 16 hrs</span>
+          </div>
+          <p class="text-sm text-gray-300">Certificate of Participation</p>
+        </div>
+      </li>
+
+      <li>
+        <div class="ml-6">
+          <div class="flex items-center mb-1">
+            <span class="text-pink-400 font-semibold">Capstone Writeshop</span>
+            <span class="ml-2 text-sm text-gray-400">| October 10, 2024 • 8 hrs</span>
+          </div>
+          <p class="text-sm text-gray-300">Certificate of Participation & Appreciation (Facilitator)</p>
+        </div>
+      </li>
+
+      <li>
+        <div class="ml-6">
+          <div class="flex items-center mb-1">
+            <span class="text-pink-400 font-semibold">Exploring Tech Careers</span>
+            <span class="ml-2 text-sm text-gray-400">| November 27, 2024 • 8 hrs</span>
+          </div>
+          <p class="text-sm text-gray-300">Certificate of Participation & Appreciation (Facilitator)</p>
+        </div>
+      </li>
+
+      <li>
+        <div class="ml-6">
+          <div class="flex items-center mb-1">
+            <span class="text-pink-400 font-semibold">OJT Orientation: Get Ready for Your Journey</span>
+            <span class="ml-2 text-sm text-gray-400">| January 21, 2025 • 8 hrs</span>
+          </div>
+          <p class="text-sm text-gray-300">Certificate of Participation & Appreciation (Facilitator)</p>
+        </div>
+      </li>
+
+      <li>
+        <div class="ml-6">
+          <div class="flex items-center mb-1">
+            <span class="text-pink-400 font-semibold">Understanding Intellectual Property</span>
+            <span class="ml-2 text-sm text-gray-400">| March 14, 2025 • 8 hrs</span>
+          </div>
+          <p class="text-sm text-gray-300">Certificate of Participation & Appreciation (Facilitator)</p>
+        </div>
+      </li>
+
+      <li>
+        <div class="ml-6">
+          <div class="flex items-center mb-1">
+            <span class="text-pink-400 font-semibold">Capstone Adventure Begins</span>
+            <span class="ml-2 text-sm text-gray-400">| March 27, 2025 • 5 hrs</span>
+          </div>
+          <p class="text-sm text-gray-300">Certificate of Appreciation (Facilitator)</p>
+        </div>
+      </li>
+
+      <li>
+        <div class="ml-6">
+          <div class="flex items-center mb-1">
+            <span class="text-pink-400 font-semibold">6th International Lecture Series for IT and ABE</span>
+            <span class="ml-2 text-sm text-gray-400">| May 15, 2025 • 5 hrs</span>
+          </div>
+          <p class="text-sm text-gray-300">Certificate of Participation & Appreciation (Facilitator)</p>
+        </div>
+      </li>
+
+      <li>
+        <div class="ml-6">
+          <div class="flex items-center mb-1">
+            <span class="text-pink-400 font-semibold">University of Kratie Web Enhancement</span>
+            <span class="ml-2 text-sm text-gray-400">| May 30, 2025 • 506 hrs</span>
+          </div>
+          <p class="text-sm text-gray-300">Certificate of Appreciation (Project Manager)</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- Contact Section Placeholder -->
+  <section id="contact" tabindex="0" aria-labelledby="contact-heading" style="padding: 5rem 4rem; max-width: 700px; margin: 0 auto; text-align: center;">
+    <h2 id="contact-heading" style="color: #ffb6c1; font-family: 'Orbitron', sans-serif; letter-spacing: 4px;">Contact Me</h2>
+    <p style="color: #ddd; font-weight: 300;">Feel free to reach out for collaborations or freelance work!</p>
+    <a href="mailto:kimberlysinaguinan12" style="color: #ffb6c1; font-weight: 600; font-size: 1.2rem;">kimberlysinaguinan12@gmail.com</a>
+  </section>
+  
+  <script>
+  const nav = document.querySelector('nav');
+  let lastScroll = window.pageYOffset;
+
+  window.addEventListener('scroll', () => {
+    let currentScroll = window.pageYOffset;
+
+    if (currentScroll < lastScroll) {
+      // Scrolling UP - hide navbar
+      nav.style.top = '-60px'; 
+    } else {
+      // Scrolling DOWN - show navbar
+      nav.style.top = '20px'; 
+    }
+
+    lastScroll = currentScroll <= 0 ? 0 : currentScroll; 
+  });
+</script>
+
+</body>
+</html>
