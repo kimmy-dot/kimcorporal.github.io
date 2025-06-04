@@ -158,6 +158,16 @@
     }
   }
 
+  .scrollbar-thin::-webkit-scrollbar {
+    height: 8px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: #ec4899; 
+    border-radius: 10px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
 
   </style>
 </head>
@@ -194,7 +204,7 @@
   </nav>
   <!-- Hero / Intro -->
   <header class="max-w-4xl mx-auto text-center mt-12 mb-10 px-6 fade-in">
-    <h2 class="text-5xl font-extrabold mb-3 text-pink-400 drop-shadow-lg">My Skills & Expertise</h2>
+    <h2 style=" color: #ffb6c1; font-family: 'Orbitron', sans-serif; letter-spacing: 4px;" class="text-5xl font-extrabold mb-3 text-pink-400 drop-shadow-lg">My Skills & Expertise</h2>
     <p class="text-gray-300 text-lg max-w-xl mx-auto">A showcase of my technical abilities and leadership experiences shaping my journey.</p>
   </header>
 
@@ -252,7 +262,7 @@
 <hr class="my-16 border-t-2 border-pink-600 opacity-50">
   <!-- Leadership Section -->
   <section id="leadership" class="max-w-5xl mx-auto mt-20 bg-gradient-to-r from-pink-700 via-pink-800 to-pink-900 rounded-3xl shadow-2xl p-12 fade-in">
-  <h3 class="text-5xl font-extrabold mb-10 text-yellow-300 border-b-4 border-yellow-400 pb-4 w-max mx-auto relative">
+  <h3 style=" font-family: 'Orbitron', sans-serif; letter-spacing: 4px;" class="text-5xl font-extrabold mb-10 text-yellow-300 border-b-4 border-yellow-400 pb-4 w-max mx-auto relative">
     Leadership Skills
     <span class="absolute -bottom-6 left-0 w-20 h-1 bg-yellow-400 rounded-full blur-sm opacity-60"></span>
   </h3>
@@ -295,104 +305,114 @@
 
   </div>
 </section>
-
 <!-- Projects Section -->
-<section id="projects" class="max-w-7xl mx-auto px-6 mt-16">
-  <h3 class="text-4xl font-bold mb-10 text-pink-400 border-b-4 border-pink-600 pb-3 inline-block">Projects</h3>
+<section id="projects" class="max-w-7xl mx-auto px-6 my-16">
+  <h3 style=" color: #ffb6c1; font-family: 'Orbitron', sans-serif; letter-spacing: 4px;" class="text-4xl font-bold mb-10 text-pink-400 border-b-4 border-pink-600 pb-3 inline-block stroke-text">
+    Projects
+  </h3>
 
-  <!-- Horizontal Cards -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-
-    <!-- Project 7 -->
-    <a href="" target="_blank" rel="noopener noreferrer" class="block bg-gray-900 rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
-      <img src="../picture/p2.png" alt="Editing" class="w-full h-48 object-contain bg-white">
+  <!-- Horizontal Scroll Carousel -->
+  <div class="flex overflow-x-auto space-x-6 pb-4 scrollbar-thin scrollbar-thumb-pink-400">
+    
+    <!-- Project 1 -->
+    <a href="" target="_blank" rel="noopener noreferrer" class="min-w-[250px] flex-shrink-0 bg-gray-900 rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+      <img src="../picture/p2.png" alt="Logo" class="w-full h-48 object-contain bg-white">
       <div class="p-4">
         <h4 class="text-lg font-semibold text-violet-300 mb-1">Logo</h4>
         <p class="text-gray-300 text-sm">Designs using Adobe + Canva.</p>
       </div>
     </a>
-     <!-- Project 8 -->
-    <a href="" target="_blank" rel="noopener noreferrer" class="block bg-gray-900 rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
-      <img src="../picture/cd.1.jpg" alt="Editing" class="w-full h-48 object-contain bg-white">
+
+    <!-- Project 2 -->
+    <a href="" target="_blank" rel="noopener noreferrer" class="min-w-[250px] flex-shrink-0 bg-gray-900 rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+      <img src="../picture/cd.1.jpg" alt="Poster" class="w-full h-48 object-contain bg-white">
       <div class="p-4">
         <h4 class="text-lg font-semibold text-green-300 mb-1">Poster</h4>
         <p class="text-gray-300 text-sm">Designs using Adobe + Canva.</p>
       </div>
     </a>
-      <!-- Project 9 -->
-    <a href="" target="_blank" rel="noopener noreferrer" class="block bg-gray-900 rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
-      <img src="../picture/P3.jpg" alt="Editing" class="w-full h-48 object-contain bg-white">
+
+    <!-- Project 3 -->
+    <a href="" target="_blank" rel="noopener noreferrer" class="min-w-[250px] flex-shrink-0 bg-gray-900 rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+      <img src="../picture/P3.jpg" alt="Poster" class="w-full h-48 object-contain bg-white">
       <div class="p-4">
         <h4 class="text-lg font-semibold text-blue-300 mb-1">Poster</h4>
         <p class="text-gray-300 text-sm">Designs using Adobe + Canva.</p>
       </div>
     </a>
-     <!-- Project 9 -->
-    <a href="" target="_blank" rel="noopener noreferrer" class="block bg-gray-900 rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
-      <img src="../picture/P0.1.jpg" alt="Editing" class="w-full h-48 object-contain bg-white">
+
+    <!-- Project 4 -->
+    <a href="" target="_blank" rel="noopener noreferrer" class="min-w-[250px] flex-shrink-0 bg-gray-900 rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+      <img src="../picture/P0.1.jpg" alt="Poster" class="w-full h-48 object-contain bg-white">
       <div class="p-4">
         <h4 class="text-lg font-semibold text-yellow-300 mb-1">Poster</h4>
         <p class="text-gray-300 text-sm">Designs using Adobe + Canva.</p>
       </div>
     </a>
-     <!-- Project 9 -->
-    <a href="" target="_blank" rel="noopener noreferrer" class="block bg-gray-900 rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
-      <img src="../picture/P2.jpg" alt="Editing" class="w-full h-48 object-contain bg-white">
+
+    <!-- Project 5 -->
+    <a href="" target="_blank" rel="noopener noreferrer" class="min-w-[250px] flex-shrink-0 bg-gray-900 rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+      <img src="../picture/P2.jpg" alt="Poster" class="w-full h-48 object-contain bg-white">
       <div class="p-4">
-        <h4 class="text-lg font-semibold text-dark-gray-300 mb-1">Poster</h4>
+        <h4 class="text-lg font-semibold text-gray-300 mb-1">Poster</h4>
         <p class="text-gray-300 text-sm">Designs using Adobe + Canva.</p>
       </div>
     </a>
-     <!-- Project 9 -->
-    <a href="" target="_blank" rel="noopener noreferrer" class="block bg-gray-900 rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
-      <img src="../picture/P4.jpg" alt="Editing" class="w-full h-48 object-contain bg-white">
+
+    <!-- Project 6 -->
+    <a href="" target="_blank" rel="noopener noreferrer" class="min-w-[250px] flex-shrink-0 bg-gray-900 rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+      <img src="../picture/P4.jpg" alt="Poster" class="w-full h-48 object-contain bg-white">
       <div class="p-4">
         <h4 class="text-lg font-semibold text-orange-300 mb-1">Poster</h4>
         <p class="text-gray-300 text-sm">Designs using Adobe + Canva.</p>
       </div>
     </a>
-     <!-- Project 9 -->
-    <a href="" target="_blank" rel="noopener noreferrer" class="block bg-gray-900 rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
-      <img src="../picture/P6.jpg" alt="Editing" class="w-full h-48 object-contain bg-white">
+
+    <!-- Project 7 -->
+    <a href="" target="_blank" rel="noopener noreferrer" class="min-w-[250px] flex-shrink-0 bg-gray-900 rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+      <img src="../picture/P6.jpg" alt="Poster" class="w-full h-48 object-contain bg-white">
       <div class="p-4">
-        <h4 class="text-lg font-semibold text-brown-300 mb-1">Poster</h4>
+        <h4 class="text-lg font-semibold text-amber-300 mb-1">Poster</h4>
         <p class="text-gray-300 text-sm">Designs using Adobe + Canva.</p>
       </div>
     </a>
-    <!-- Project 9 -->
-    <a href="" target="_blank" rel="noopener noreferrer" class="block bg-gray-900 rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
-      <img src="../picture/P7.jpg" alt="Editing" class="w-full h-48 object-contain bg-white">
+
+    <!-- Project 8 -->
+    <a href="" target="_blank" rel="noopener noreferrer" class="min-w-[250px] flex-shrink-0 bg-gray-900 rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+      <img src="../picture/P7.jpg" alt="Poster" class="w-full h-48 object-contain bg-white">
       <div class="p-4">
         <h4 class="text-lg font-semibold text-pink-300 mb-1">Poster</h4>
         <p class="text-gray-300 text-sm">Designs using Adobe + Canva.</p>
       </div>
     </a>
-     <!-- Project 9 -->
-    <a href="" target="_blank" rel="noopener noreferrer" class="block bg-gray-900 rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
-      <img src="../picture/P8.jpg" alt="Editing" class="w-full h-48 object-contain bg-white">
+
+    <!-- Project 9 -->
+    <a href="" target="_blank" rel="noopener noreferrer" class="min-w-[250px] flex-shrink-0 bg-gray-900 rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+      <img src="../picture/P8.jpg" alt="Poster" class="w-full h-48 object-contain bg-white">
       <div class="p-4">
         <h4 class="text-lg font-semibold text-red-300 mb-1">Poster</h4>
         <p class="text-gray-300 text-sm">Designs using Adobe + Canva.</p>
       </div>
     </a>
-     <!-- Project 9 -->
-    <a href="" target="_blank" rel="noopener noreferrer" class="block bg-gray-900 rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
-      <img src="../picture/P9.jpg" alt="Editing" class="w-full h-48 object-contain bg-white">
+
+    <!-- Project 10 -->
+    <a href="" target="_blank" rel="noopener noreferrer" class="min-w-[250px] flex-shrink-0 bg-gray-900 rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+      <img src="../picture/P9.jpg" alt="Poster" class="w-full h-48 object-contain bg-white">
       <div class="p-4">
         <h4 class="text-lg font-semibold text-green-300 mb-1">Poster</h4>
         <p class="text-gray-300 text-sm">Designs using Adobe + Canva.</p>
       </div>
     </a>
+
   </div>
 </section>
 
 
-
    <!-- Contact Section Placeholder -->
-  <section id="contact" tabindex="0" aria-labelledby="contact-heading" style="padding: 5rem 4rem; max-width: 700px; margin: 0 auto; text-align: center;">
-    <h2 id="contact-heading" style="color: #ff4dc1 ; font-family: 'Orbitron', sans-serif; letter-spacing: 4px;">Contact Me</h2>
+   <section id="contact" tabindex="0" aria-labelledby="contact-heading" style="padding: 5rem 4rem; max-width: 700px; margin: 0 auto; text-align: center;">
+    <h2 id="contact-heading" style="color: #ffb6c1; font-family: 'Orbitron', sans-serif; letter-spacing: 4px;">Contact Me</h2>
     <p style="color: #ddd; font-weight: 300;">Feel free to reach out for collaborations or freelance work!</p>
-    <a href="mailto:kimberly@example.com" style="color: #ff4dc1 ; font-weight: 600; font-size: 1.2rem;">kimberlysinaguinan12@gmail.com</a>
+    <a href="mailto:kimberlysinaguinan12" style="color: #ffb6c1; font-weight: 600; font-size: 1.2rem;">kimberlysinaguinan12@gmail.com</a>
   </section>
 
   <script>
